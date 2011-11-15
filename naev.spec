@@ -13,6 +13,7 @@ Source0:	http://naev.googlecode.com/files/%{name}-%{version}.tar.bz2
 Source1:	%{name}.png
 Source2:	http://naev.googlecode.com/files/ndata-%{version}
 Patch0:		naev-0.4.2-zlib.patch
+Patch1:		naev-0.5.0-linking.patch
 Requires:	%{name}-data
 BuildRequires:	binutils-devel
 BuildRequires:	freetype2-devel
@@ -52,7 +53,8 @@ This is the data file.
 
 %prep
 %setup -q
-%patch0 -p0
+%patch0 -p0 -b .zlib
+%patch1 -p1 -b .linking
 
 %build
 %configure2_5x --with-ndata-path=%{_gamesdatadir}/%{name}/ndata-%{version} --bindir=%{_gamesbindir}
