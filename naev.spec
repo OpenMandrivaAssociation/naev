@@ -1,4 +1,4 @@
-%define		version 0.5.0
+%define		version 0.5.1
 %define		name naev
 %define		release %mkrel 1
 
@@ -53,7 +53,7 @@ This is the data file.
 
 %prep
 %setup -q
-%patch0 -p0 -b .zlib
+#%patch0 -p0 -b .zlib
 %patch1 -p1 -b .linking
 
 %build
@@ -88,6 +88,7 @@ rm -rf %{buildroot}
 %attr(755,root,root) %{_gamesbindir}/%{name}
 %{_mandir}/man6/%{name}.6.*
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/%{name}/naev-confupdate.sh
 %{_iconsdir}/hicolor/*/apps/%{name}.png
 %{_datadir}/pixmaps/%{name}.png
 
