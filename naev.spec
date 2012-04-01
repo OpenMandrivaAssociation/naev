@@ -1,10 +1,6 @@
-%define		version 0.5.1
-%define		name naev
-%define		release %mkrel 1
-
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		naev
+Version:	0.5.2
+Release:	%mkrel 1
 Summary:	2D space trading and combat game
 Group:		Games/Arcade
 License: 	GPLv3+
@@ -12,7 +8,6 @@ URL:		http://code.google.com/p/naev/
 Source0:	http://naev.googlecode.com/files/%{name}-%{version}.tar.bz2
 Source1:	%{name}.png
 Source2:	http://naev.googlecode.com/files/ndata-%{version}
-Patch0:		naev-0.4.2-zlib.patch
 Patch1:		naev-0.5.0-linking.patch
 Requires:	%{name}-data
 BuildRequires:	binutils-devel
@@ -53,7 +48,6 @@ This is the data file.
 
 %prep
 %setup -q
-#%patch0 -p0 -b .zlib
 %patch1 -p1 -b .linking
 
 %build
@@ -61,13 +55,13 @@ This is the data file.
 %make
 
 %install
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 %makeinstall_std
 
-install -m644 %{SOURCE2} -D %{buildroot}%{_gamesdatadir}/%{name}/ndata-%{version}
+%__install -m644 %{SOURCE2} -D %{buildroot}%{_gamesdatadir}/%{name}/ndata-%{version}
 
-install -m644 %{SOURCE1} -D %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
-mkdir -p %{buildroot}%{_datadir}/applications/
+%__install -m644 %{SOURCE1} -D %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+%__mkdir_p %{buildroot}%{_datadir}/applications/
 %__cat << EOF > %{buildroot}%{_datadir}/applications/%{name}.desktop
 [Desktop Entry]
 Name=Naev
@@ -81,7 +75,7 @@ StartupNotify=true
 EOF
 
 %clean
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 
 %files
 %doc README LICENSE AUTHORS TODO
