@@ -1,5 +1,5 @@
 Name:		naev
-Version:	0.5.2
+Version:	0.5.3
 Release:	%mkrel 1
 Summary:	2D space trading and combat game
 Group:		Games/Arcade
