@@ -1,0 +1,12 @@
+diff -urN naev-0.5.0/src/Makefile.in naev-0.5.0-patched/src/Makefile.in
+--- naev-0.5.0/src/Makefile.in	2011-06-04 06:09:07.000000000 +1100
++++ naev-0.5.0-patched/src/Makefile.in	2011-11-15 14:17:20.618704561 +1100
+@@ -242,7 +242,7 @@
+ LDFLAGS = @LDFLAGS@
+ LIBLUA_CFLAGS = @LIBLUA_CFLAGS@
+ LIBOBJS = @LIBOBJS@
+-LIBS = @LIBS@
++LIBS = -ldl @LIBS@
+ LN_S = @LN_S@
+ LTLIBOBJS = @LTLIBOBJS@
+ LUADOC = @LUADOC@
