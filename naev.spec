@@ -1,6 +1,6 @@
 Name:		naev
 Version:	0.5.3
-Release:	%mkrel 1
+Release:	2
 Summary:	2D space trading and combat game
 Group:		Games/Arcade
 License: 	GPLv3+
@@ -11,16 +11,17 @@ Source2:	http://naev.googlecode.com/files/ndata-%{version}
 Patch1:		naev-0.5.0-linking.patch
 Requires:	%{name}-data
 BuildRequires:	binutils-devel
-BuildRequires:	freetype2-devel
+BuildRequires:	pkgconfig(freetype2)
 BuildRequires:	jpeg-devel
-BuildRequires:	libvorbis-devel
-BuildRequires:	libxml2-devel
-BuildRequires:	mesagl-devel
-BuildRequires:	openal-devel
-BuildRequires:	png-devel
-BuildRequires:	SDL-devel
-BuildRequires:	SDL_image-devel
-BuildRequires:	zlib-devel
+BuildRequires:	pkgconfig(vorbis)
+BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(gl)
+BuildRequires:	pkgconfig(glu)
+BuildRequires:	pkgconfig(openal)
+BuildRequires:	pkgconfig(libpng)
+BuildRequires:	pkgconfig(sdl)
+BuildRequires:	pkgconfig(SDL_image)
+BuildRequires:	pkgconfig(zlib)
 
 %description
 NAEV is a 2D space trading and combat game, taking inspiration from the
@@ -55,14 +56,13 @@ This is the data file.
 %make
 
 %install
-%__rm -rf %{buildroot}
 %makeinstall_std
 
-%__install -m644 %{SOURCE2} -D %{buildroot}%{_gamesdatadir}/%{name}/ndata-%{version}
+install -m644 %{SOURCE2} -D %{buildroot}%{_gamesdatadir}/%{name}/ndata-%{version}
 
-%__install -m644 %{SOURCE1} -D %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
-%__mkdir_p %{buildroot}%{_datadir}/applications/
-%__cat << EOF > %{buildroot}%{_datadir}/applications/%{name}.desktop
+install -m644 %{SOURCE1} -D %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+mkdir -p %{buildroot}%{_datadir}/applications/
+cat << EOF > %{buildroot}%{_datadir}/applications/%{name}.desktop
 [Desktop Entry]
 Name=Naev
 GenericName=Naev
@@ -73,9 +73,6 @@ Type=Application
 Categories=Game;StrategyGame;
 StartupNotify=true
 EOF
-
-%clean
-%__rm -rf %{buildroot}
 
 %files
 %doc README LICENSE AUTHORS TODO
@@ -88,4 +85,22 @@ EOF
 
 %files data
 %{_gamesdatadir}/%{name}/ndata-%{version}
+
+
+%changelog
+* Sat Apr 21 2012 Andrey Bondrov <abondrov@mandriva.org> 0.5.3-1
++ Revision: 792600
+- New version 0.5.3
+
+* Sun Apr 01 2012 Andrey Bondrov <abondrov@mandriva.org> 0.5.2-1
++ Revision: 788593
+- New version 0.5.2
+
+* Fri Mar 02 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.5.1-1
++ Revision: 781785
+- version update  0.5.1
+
+* Tue Nov 15 2011 Andrey Bondrov <abondrov@mandriva.org> 0.5.0-1
++ Revision: 730684
+- imported package naev
 
