@@ -1,6 +1,6 @@
 Name:		naev
 Version:	0.5.3
-Release:	2
+Release:	3
 Summary:	2D space trading and combat game
 Group:		Games/Arcade
 License: 	GPLv3+
