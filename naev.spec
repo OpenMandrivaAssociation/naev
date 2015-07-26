@@ -85,22 +85,3 @@ EOF
 
 %files data
 %{_gamesdatadir}/%{name}/ndata-%{version}
-
-
-%changelog
-* Sat Apr 21 2012 Andrey Bondrov <abondrov@mandriva.org> 0.5.3-1
-+ Revision: 792600
-- New version 0.5.3
-
-* Sun Apr 01 2012 Andrey Bondrov <abondrov@mandriva.org> 0.5.2-1
-+ Revision: 788593
-- New version 0.5.2
-
-* Fri Mar 02 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.5.1-1
-+ Revision: 781785
-- version update  0.5.1
-
-* Tue Nov 15 2011 Andrey Bondrov <abondrov@mandriva.org> 0.5.0-1
-+ Revision: 730684
-- imported package naev
-
