@@ -4,7 +4,7 @@ Release:	3
 Summary:	2D space trading and combat game
 Group:		Games/Arcade
 License: 	GPLv3+
-URL:		http://code.google.com/p/naev/
+URL:		https://code.google.com/p/naev/
 Source0:	http://naev.googlecode.com/files/%{name}-%{version}.tar.bz2
 Source1:	%{name}.png
 Source2:	http://naev.googlecode.com/files/ndata-%{version}
