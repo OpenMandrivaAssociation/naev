@@ -10,6 +10,11 @@ Source1:	%{name}.png
 Source2:	http://naev.googlecode.com/files/ndata-%{version}
 Patch1:		naev-0.5.0-linking.patch
 Requires:	%{name}-data
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	binutils-devel
 BuildRequires:	pkgconfig(freetype2)
 BuildRequires:	jpeg-devel
